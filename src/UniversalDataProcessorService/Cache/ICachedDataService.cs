@@ -1,28 +1,31 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.Extensions.Caching.Memory;
+using System.Collections.Concurrent;
 
 
 namespace UniversalDataProcessorService.Cache
 {
     public interface ICachedDataService<T> where T : class
     {
-        Task InitilizeCache();
+        void AddItemToCache(IList<T> items);
         Task<T?> FindByKey(string key);
     }
     public abstract class CachedDataService<T> : ICachedDataService<T> where T : class
     {
+        protected IMemoryCache _cache;
+        protected volatile bool initialized = false;
+        protected readonly object _lock = new object();
         protected virtual T DefaultEntity => default;
         protected ConcurrentDictionary<string, T> cache = new ConcurrentDictionary<string, T>();
-       
-       
-        private IServiceProvider _serviceProvider;
-        public CachedDataService(IServiceProvider _serviceProvider)
+
+        protected ILogger<T> logger;
+        
+        public CachedDataService(ILogger<T> logger)
         {
-            this._serviceProvider = _serviceProvider;
+            this.logger = logger;
         }
         public async Task<T?> FindByKey(string key)
         {
-            cache.TryGetValue(key, out T result);
-           
+            cache.TryGetValue(key, out T result);          
            
             return result?? DefaultEntity;
 
@@ -30,9 +33,28 @@ namespace UniversalDataProcessorService.Cache
            
         protected abstract string GenerateKey(T entity);
 
-        public Task InitilizeCache()
+        public void AddItemToCache(IList<T> items)
         {
-            throw new NotImplementedException();
+
+            _cache.Remove(CacheKeys.Portfolio);
+            foreach (var item in items)
+            {
+                var key = GenerateKey(item);
+                if (!_cache.TryGetValue(key, out T cachedItem))
+                {
+                    _cache.Set(key, item);
+
+                }
+                else
+                {
+                    //Log business exception
+                    logger.LogWarning($"Duplicate PortfolioId found {key}. Taking the first one only");
+                }
+            }
+
+
         }
+
+   
     }
 }

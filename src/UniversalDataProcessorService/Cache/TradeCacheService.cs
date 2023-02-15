@@ -1,13 +1,15 @@
-﻿using UniversalDataProcessorModel;
+﻿using Microsoft.Extensions.Caching.Memory;
+using System.Collections.Concurrent;
+using UniversalDataProcessorModel;
 
 namespace UniversalDataProcessorService.Cache
 {
     public class SecurityCacheService : CachedDataService<Security>
     {
-        private IServiceProvider _serviceProvider;
-        public SecurityCacheService(IServiceProvider _serviceProvider) : base(_serviceProvider)
+       
+        public SecurityCacheService(ILogger<Security> _logger) : base(_logger)
         {
-            this._serviceProvider = _serviceProvider;
+           
         }
        
         protected override string GenerateKey(Security entity) => entity.SecurityId.ToString();
@@ -15,15 +17,13 @@ namespace UniversalDataProcessorService.Cache
     }
     public class PortfolioCacheService : CachedDataService<Portfolio>
     {
-        private IServiceProvider _serviceProvider;
-        public PortfolioCacheService(IServiceProvider _serviceProvider) : base(_serviceProvider)
+        public PortfolioCacheService(ILogger<Portfolio> _logger) : base(_logger)
         {
-            this._serviceProvider = _serviceProvider;
+          
         }
        
 
-       
-        protected override string GenerateKey(Portfolio entity) => entity.PortfolioId.ToString();
+        protected override string GenerateKey(Portfolio entity) => $"{CacheKeys.Portfolio}_{entity.PortfolioId}";
 
     }
 }

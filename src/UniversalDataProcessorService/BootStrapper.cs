@@ -1,7 +1,10 @@
 ﻿using Serilog;
 using Serilog.Events;
 using UniversalDataProcessorDataFramework;
+using UniversalDataProcessorModel;
 using UniversalDataProcessorService.Cache;
+using UniversalDataProcessorService.DataProvider;
+using UniversalDataProcessorService.FileHandler;
 
 namespace UniversalDataProcessorService
 {
@@ -18,6 +21,9 @@ namespace UniversalDataProcessorService
             var dbconnection = configuration.GetConnectionString("reconMauiConnection");
 
             ConfigureLogging();
+            services.AddTransient(typeof(IFileReader<>), typeof(FileReader<>));
+            services.AddScoped<IStaticDataProvider<Security>, SecurityDataProvider>();
+            services.AddScoped<IStaticDataProvider<Portfolio>, PortfolioDataProvider>();
             DataBaseStrapper.RegisterDatabase(services, configuration, null);
             CacheInitializer.RegisterCache(services);
         }

@@ -3,9 +3,9 @@
     public class Security
     {
         public int SecurityId { get; set; }
-        public string Isin { get; set; }
+        public string ISIN { get; set; }
         public string Ticker { get; set; }
-        public string Cusip { get; set; }
+        public string CUSIP { get; set; }
     }
 
     public class Portfolio
