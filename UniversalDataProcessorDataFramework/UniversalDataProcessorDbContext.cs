@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using UniversalDataProcessorModel;
 
 namespace UniversalDataProcessorDataFramework
 {
@@ -11,7 +11,7 @@ namespace UniversalDataProcessorDataFramework
        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           // modelBuilder.ApplyConfigurationsFromAssembly(typeof(Trade).Assembly);
+           modelBuilder.ApplyConfigurationsFromAssembly(typeof(Transaction).Assembly);
         }
     }
 }

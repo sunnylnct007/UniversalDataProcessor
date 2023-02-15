@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Serilog;
+using Serilog.Events;
+using UniversalDataProcessorDataFramework;
+using UniversalDataProcessorService.Cache;
 
 namespace UniversalDataProcessorService
 {
@@ -26,7 +28,7 @@ namespace UniversalDataProcessorService
        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
        .Enrich.FromLogContext()
        .WriteTo.Console()
-       .WriteTo.File(@".\log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+       .WriteTo.File(@".\UniversalDataProcessorlog.txt", rollingInterval: RollingInterval.Day).CreateLogger();
         }
     }
 }
