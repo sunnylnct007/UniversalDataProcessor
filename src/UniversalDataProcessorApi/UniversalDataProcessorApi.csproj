@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\UniversalDataProcessorDataFramework\UniversalDataProcessorDataFramework.csproj" />
+    <ProjectReference Include="..\UniversalDataProcessorModel\UniversalDataProcessorModel.csproj" />
+    <ProjectReference Include="..\UniversalDataProcessorService\UniversalDataProcessorService.csproj" />
+  </ItemGroup>
+
 </Project>
