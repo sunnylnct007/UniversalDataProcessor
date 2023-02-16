@@ -36,10 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\UniversalDataProcessorApi\UniversalDataProcessorApi.csproj" />
-    <ProjectReference Include="..\src\UniversalDataProcessorModel\UniversalDataProcessorModel.csproj" />
-    <ProjectReference Include="..\src\UniversalDataProcessorService\UniversalDataProcessorService.csproj" />
-    <ProjectReference Include="..\UniversalDataProcessorDataFramework\UniversalDataProcessorDataFramework.csproj" />
+    <ProjectReference Include="..\UniversalDataProcessorService\UniversalDataProcessorService.csproj" />
   </ItemGroup>
 
 </Project>

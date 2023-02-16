@@ -7,7 +7,7 @@ namespace UniversalDataProcessorService.Cache
     public interface ICachedDataService<T> where T : class
     {
         void AddItemToCache(IList<T> items);
-        Task<T?> FindByKey(string key);
+        T FindByKey(string key);
     }
     public abstract class CachedDataService<T> : ICachedDataService<T> where T : class
     {
@@ -18,15 +18,15 @@ namespace UniversalDataProcessorService.Cache
         protected ConcurrentDictionary<string, T> cache = new ConcurrentDictionary<string, T>();
 
         protected ILogger<T> logger;
-
+        protected abstract string CacheEntity { get; }
         public CachedDataService(ILogger<T> logger, IMemoryCache cache)
         {
             this.logger = logger;
             _cache = cache;
         }
-        public async Task<T?> FindByKey(string key)
+        public T FindByKey(string key)
         {
-            cache.TryGetValue(key, out T result);          
+            _cache.TryGetValue($"{CacheEntity}_{key}", out T result);          
            
             return result?? DefaultEntity;
 

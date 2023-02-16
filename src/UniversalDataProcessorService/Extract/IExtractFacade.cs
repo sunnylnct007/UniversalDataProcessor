@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using UniversalDataProcessorModel;
 
 namespace UniversalDataProcessorService.Extract
 {
-    public  interface IExtractGenerator<T>
+    public interface IExtractFacade
     {
-        Task GenerateExtract(IList<T> lstItems,ExtractConfig config);
+        void GenerateExtract(string filePath);
     }
 }

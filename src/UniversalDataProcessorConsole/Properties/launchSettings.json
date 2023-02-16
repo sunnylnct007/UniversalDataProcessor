@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "UniversalDataProcessorConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "--InputFile=C:\\temp\\transactions.csv"
+    }
+  }
+}

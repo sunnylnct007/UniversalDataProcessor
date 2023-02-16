@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\UniversalDataProcessorModel\UniversalDataProcessorModel.csproj" />
+    <ProjectReference Include="..\UniversalDataProcessorModel\UniversalDataProcessorModel.csproj" />
   </ItemGroup>
 
 </Project>
