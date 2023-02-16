@@ -8,5 +8,7 @@
  
  ## Running the program
  Launch UniversalDataProcessorConsole with below parameters once above step is done with below arguments (please change the file path accordingly)
+ <!-- snippet: ScreenshotAsync -->
+ ```cs
  --InputFile=C:\\temp\\transactions.csv
- 
+ ```
