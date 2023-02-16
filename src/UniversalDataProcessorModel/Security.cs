@@ -7,11 +7,4 @@
         public string Ticker { get; set; }
         public string CUSIP { get; set; }
     }
-
-    public class Portfolio
-    {
-        public int PortfolioId { get; set; }
-        public string PortfolioCode { get; set; }
-       
-    }
 }

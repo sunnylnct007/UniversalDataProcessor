@@ -1,9 +1,11 @@
-﻿using Serilog;
+﻿using MediatR;
+using Serilog;
 using Serilog.Events;
 using UniversalDataProcessorDataFramework;
 using UniversalDataProcessorModel;
 using UniversalDataProcessorService.Cache;
 using UniversalDataProcessorService.DataProvider;
+using UniversalDataProcessorService.Extract;
 using UniversalDataProcessorService.FileHandler;
 
 namespace UniversalDataProcessorService
@@ -22,7 +24,10 @@ namespace UniversalDataProcessorService
 
             ConfigureLogging();
             services.AddMemoryCache();
+            services.AddMediatR(typeof(BootStrapper));
             services.AddTransient(typeof(IFileReader<>), typeof(FileReader<>));
+            services.AddTransient(typeof(IExtractGenerator<>), typeof(ExtractGenerator<>));
+            services.AddTransient(typeof(IFileGenerator<>), typeof(FileGenerator<>));
             services.AddScoped<IStaticDataProvider<Security>, SecurityDataProvider>();
             services.AddScoped<IStaticDataProvider<Portfolio>, PortfolioDataProvider>();
             DataBaseStrapper.RegisterDatabase(services, configuration, null);

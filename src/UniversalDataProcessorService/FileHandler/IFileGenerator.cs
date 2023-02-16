@@ -2,6 +2,6 @@
 {
     public interface IFileGenerator<T>
     {
-        MemoryStream GenerateCsvFile(IList<T> lst);
+        MemoryStream GenerateCsvFile(IList<T> lst,string delimeter);
     }
 }

@@ -6,12 +6,13 @@ namespace UniversalDataProcessorService.FileHandler
 {
     public class FileGenerator<T> : IFileGenerator<T>
     {
-        public MemoryStream GenerateCsvFile(IList<T> lst)
+        public MemoryStream GenerateCsvFile(IList<T> lst, string delimeter)
         {
             var stream = new MemoryStream();
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                ShouldQuote = context => true
+                ShouldQuote = context => true,
+                Delimiter=delimeter?? ","
             };
 
             using (var writeFile = new StreamWriter(stream, leaveOpen: true))
