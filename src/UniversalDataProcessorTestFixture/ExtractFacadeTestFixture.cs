@@ -15,7 +15,7 @@ namespace UniversalDataProcessorTestFixture
         public void Generates_File_Correctly()
         {
             var filePath = "..\\..\\..\\TestFile\\transactions.csv";
-            var extractFacade = serviceProvider.GetService<IExtractFacade>();
+            var extractFacade = serviceProvider.GetService<IExtractFactory>();
             extractFacade.GenerateExtract(filePath);
 
         }

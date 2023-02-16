@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UniversalDataProcessorService.Extract
 {
-    public interface IExtractFacade
+    public interface IExtractFactory
     {
         void GenerateExtract(string filePath);
     }

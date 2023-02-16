@@ -42,7 +42,7 @@ class Program
             Log.Logger.Information("Completed initializing cache");
 
 
-            var extractfacade = serviceProvider.GetService<IExtractFacade>();
+            var extractfacade = serviceProvider.GetService<IExtractFactory>();
             extractfacade.GenerateExtract(opts.InputTransactionFile);
             var config = serviceProvider.GetService<IConfiguration>();
             

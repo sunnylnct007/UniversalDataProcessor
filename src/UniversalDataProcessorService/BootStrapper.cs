@@ -27,7 +27,7 @@ namespace UniversalDataProcessorService
             ConfigureLogging();
             services.AddMemoryCache();
             services.AddAutoMapper(typeof(BootStrapper), typeof(ProcessorOptions));
-            services.AddScoped<IExtractFacade, ExtractFacade>();
+            services.AddScoped<IExtractFactory, ExtractFactory>();
             services.AddTransient(typeof(IFileReader<>), typeof(FileReader<>));
             services.AddTransient(typeof(IExtractGenerator<>), typeof(ExtractGenerator<>));
             services.AddTransient(typeof(IFileGenerator<>), typeof(FileGenerator<>));
