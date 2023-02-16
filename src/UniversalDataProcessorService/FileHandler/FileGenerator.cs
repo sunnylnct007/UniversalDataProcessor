@@ -17,8 +17,7 @@ namespace UniversalDataProcessorService.FileHandler
             using (var writeFile = new StreamWriter(stream, leaveOpen: true))
             {
 
-                var csv = new CsvWriter(writeFile, config);
-                //   csv.Context.RegisterClassMap<SeconiqueShopifyProductMap>();
+                var csv = new CsvWriter(writeFile, config);            
                 csv.WriteRecords(lst);
                 csv.Flush();
             }
