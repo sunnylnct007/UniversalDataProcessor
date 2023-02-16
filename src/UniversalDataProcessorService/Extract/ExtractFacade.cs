@@ -40,7 +40,7 @@ namespace UniversalDataProcessorService.Extract
             }
             else
             {
-                throw new InvalidDataException("Please ensure the configs have been defined");
+                throw new InvalidDataException("Please ensure the configs have been defined for OmsTypeAAA");
             }
             if (dictConfigs.TryGetValue("OmsTypeBBB", out config))
             {
@@ -48,7 +48,7 @@ namespace UniversalDataProcessorService.Extract
             }
             else
             {
-                throw new InvalidDataException("Please ensure the configs have been defined");
+                throw new InvalidDataException("Please ensure the configs have been defined for OmsTypeBBB");
             }
 
             if (dictConfigs.TryGetValue("OmsTypeCCC", out config))
@@ -57,7 +57,7 @@ namespace UniversalDataProcessorService.Extract
             }
             else
             {
-                throw new InvalidDataException("Please ensure the configs have been defined");
+                throw new InvalidDataException("Please ensure the configs have been defined for OmsTypeCCC");
             }
                       
         }
