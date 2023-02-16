@@ -6,10 +6,11 @@ namespace UniversalDataProcessorService.FileHandler
 {
     public class FileReader<T> : IFileReader<T>
     {
-      //  private ILogger logger;
-        public FileReader()
+        private ILogger<FileReader<T>> logger;
+        public FileReader(ILogger<FileReader<T>> logger)
         {
-            //this.logger = logger;
+            this.logger = logger;
+            
         }
         public IList<T> ReadFile(Stream stream)
         {
@@ -22,7 +23,7 @@ namespace UniversalDataProcessorService.FileHandler
                     Delimiter = delimiter,
                     BadDataFound = context =>
                     {
-                        //logger.LogError($"Bad data found on row '{context.RawRecord}'");
+                        logger.LogError($"Bad data found on row '{context.RawRecord}'");
 
                     },
                     HasHeaderRecord = true,

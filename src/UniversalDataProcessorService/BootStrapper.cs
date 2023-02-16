@@ -21,11 +21,15 @@ namespace UniversalDataProcessorService
             var dbconnection = configuration.GetConnectionString("reconMauiConnection");
 
             ConfigureLogging();
+            services.AddMemoryCache();
             services.AddTransient(typeof(IFileReader<>), typeof(FileReader<>));
             services.AddScoped<IStaticDataProvider<Security>, SecurityDataProvider>();
             services.AddScoped<IStaticDataProvider<Portfolio>, PortfolioDataProvider>();
             DataBaseStrapper.RegisterDatabase(services, configuration, null);
             CacheInitializer.RegisterCache(services);
+            services.AddLogging();
+            var cachefacade = services.BuildServiceProvider().GetService<ICacheFacade>();
+            cachefacade.InitializeCache();
         }
         //Currently only logging to file but can be changed to include DB logging as well
         private static void ConfigureLogging()

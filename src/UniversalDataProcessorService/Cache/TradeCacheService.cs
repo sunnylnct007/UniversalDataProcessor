@@ -6,8 +6,8 @@ namespace UniversalDataProcessorService.Cache
 {
     public class SecurityCacheService : CachedDataService<Security>
     {
-       
-        public SecurityCacheService(ILogger<Security> _logger) : base(_logger)
+        protected IMemoryCache _cache;
+        public SecurityCacheService(ILogger<Security> _logger, IMemoryCache _cache) : base(_logger, _cache)
         {
            
         }
@@ -17,7 +17,7 @@ namespace UniversalDataProcessorService.Cache
     }
     public class PortfolioCacheService : CachedDataService<Portfolio>
     {
-        public PortfolioCacheService(ILogger<Portfolio> _logger) : base(_logger)
+        public PortfolioCacheService(ILogger<Portfolio> _logger, IMemoryCache _cache) : base(_logger, _cache)
         {
           
         }

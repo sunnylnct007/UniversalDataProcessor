@@ -18,10 +18,11 @@ namespace UniversalDataProcessorService.Cache
         protected ConcurrentDictionary<string, T> cache = new ConcurrentDictionary<string, T>();
 
         protected ILogger<T> logger;
-        
-        public CachedDataService(ILogger<T> logger)
+
+        public CachedDataService(ILogger<T> logger, IMemoryCache cache)
         {
             this.logger = logger;
+            _cache = cache;
         }
         public async Task<T?> FindByKey(string key)
         {
@@ -35,8 +36,6 @@ namespace UniversalDataProcessorService.Cache
 
         public void AddItemToCache(IList<T> items)
         {
-
-            _cache.Remove(CacheKeys.Portfolio);
             foreach (var item in items)
             {
                 var key = GenerateKey(item);
