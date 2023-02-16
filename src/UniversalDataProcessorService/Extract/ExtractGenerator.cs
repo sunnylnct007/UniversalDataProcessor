@@ -15,9 +15,9 @@ namespace UniversalDataProcessorService.Extract
 
         public async Task GenerateExtract(IList<T> lstItems, ExtractConfig config)
         {
-            var stream = fileGenerator.GenerateCsvFile(lstItems, config.Delimeter);
+            var stream = fileGenerator.GenerateCsvFile(lstItems, config);
             var outputfilePath = configuration.GetValue<string>("OutputDataDirectory");
-            var outputfileName = $"{outputfilePath}{config.Name}";
+            var outputfileName = $"{outputfilePath}{config.Name}.{config.Extension}";
             var archiveFilePath = $"{outputfilePath}Archive";
             var dirInfo = new DirectoryInfo(archiveFilePath);
             if(!dirInfo.Exists)

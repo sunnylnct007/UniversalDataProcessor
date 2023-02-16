@@ -14,4 +14,21 @@ namespace UniversalDataProcessorModel.Dto
         public string TransactionType { get; set; }
 
     }
+    public class OmsTypeBBB
+    {
+        public string Cusip { get; set; }
+        public string PortfolioCode { get; set; }
+        public decimal Nominal { get; set; }
+        public string TransactionType { get; set; }
+
+    }
+    public class OmsTypeCCC
+    {
+       
+        public string PortfolioCode { get; set; }
+        public string Ticker { get; set; }
+        public decimal Nominal { get; set; }
+        public string TransactionType { get; set; }
+
+    }
 }

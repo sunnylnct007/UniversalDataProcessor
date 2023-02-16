@@ -8,10 +8,10 @@ namespace UniversalDataProcessorDataFramework
         {
 
         }
-       
+       public DbSet<ExtractConfig> ExtractConfigs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           modelBuilder.ApplyConfigurationsFromAssembly(typeof(Transaction).Assembly);
+           modelBuilder.ApplyConfigurationsFromAssembly(typeof(ExtractConfig).Assembly);
         }
     }
 }

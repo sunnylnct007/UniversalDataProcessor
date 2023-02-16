@@ -1,24 +1,25 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
+using UniversalDataProcessorModel;
 
 namespace UniversalDataProcessorService.FileHandler
 {
     public class FileGenerator<T> : IFileGenerator<T>
     {
-        public MemoryStream GenerateCsvFile(IList<T> lst, string delimeter)
+        public MemoryStream GenerateCsvFile(IList<T> lst, ExtractConfig config)
         {
             var stream = new MemoryStream();
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            var csvconfig = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 ShouldQuote = context => true,
-                Delimiter=delimeter?? ","
+                Delimiter= config.Delimeter ?? ",", HasHeaderRecord = config.ShowHeader
             };
 
             using (var writeFile = new StreamWriter(stream, leaveOpen: true))
             {
 
-                var csv = new CsvWriter(writeFile, config);            
+                var csv = new CsvWriter(writeFile, csvconfig);            
                 csv.WriteRecords(lst);
                 csv.Flush();
             }

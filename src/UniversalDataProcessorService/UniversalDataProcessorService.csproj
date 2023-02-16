@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\UniversalDataProcessorDataFramework\UniversalDataProcessorDataFramework.csproj" />
+    <ProjectReference Include="..\UniversalDataProcessorDataFramework\UniversalDataProcessorDataFramework.csproj" />
     <ProjectReference Include="..\UniversalDataProcessorModel\UniversalDataProcessorModel.csproj" />
   </ItemGroup>
 

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalDataProcessorTestF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalDataProcessorConsole", "src\UniversalDataProcessorConsole\UniversalDataProcessorConsole.csproj", "{820836FF-3F94-4279-B57E-92AB112BC6AA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalDataProcessorDataFramework", "src\UniversalDataProcessorDataFramework\UniversalDataProcessorDataFramework.csproj", "{7C42DBAA-9521-4E04-9236-DD82B6C751AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{820836FF-3F94-4279-B57E-92AB112BC6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{820836FF-3F94-4279-B57E-92AB112BC6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{820836FF-3F94-4279-B57E-92AB112BC6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C42DBAA-9521-4E04-9236-DD82B6C751AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C42DBAA-9521-4E04-9236-DD82B6C751AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C42DBAA-9521-4E04-9236-DD82B6C751AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C42DBAA-9521-4E04-9236-DD82B6C751AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,7 +44,7 @@ namespace UniversalDataProcessorDataFramework
 
                 client?.Database.EnsureCreated();
 
-               // DbInitializer.Initialize(client);
+                DbInitializer.Initialize(client);
 
             }
         }

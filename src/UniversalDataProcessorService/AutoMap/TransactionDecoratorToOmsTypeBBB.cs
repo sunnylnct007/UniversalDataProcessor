@@ -1,16 +1,15 @@
 ﻿using UniversalDataProcessorModel.Decorator;
 using AutoMapper;
 using UniversalDataProcessorModel.Dto;
-using AutoMapper.Configuration.Conventions;
 
 namespace UniversalDataProcessorService.AutoMap
 {
-    public class TransactionDecoratorToOmsTypeAAA: Profile
+    public class TransactionDecoratorToOmsTypeBBB : Profile
     {
-        public TransactionDecoratorToOmsTypeAAA()
+        public TransactionDecoratorToOmsTypeBBB()
         {
-            CreateMap<TransactionDecorator, OmsTypeAAA>()
-                .ForMember(destination => destination.ISIN, map=> map.MapFrom(source=>source.Security.ISIN))
+            CreateMap<TransactionDecorator, OmsTypeBBB>()
+                .ForMember(destination => destination.Cusip, map => map.MapFrom(source => source.Security.CUSIP))
                 .ForMember(destination => destination.PortfolioCode, map => map.MapFrom(source => source.Portfolio.PortfolioCode));
         }
     }
